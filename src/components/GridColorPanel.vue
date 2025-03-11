@@ -1,5 +1,6 @@
 <template>
-  <div class="color-panel">
+  <div class="grid-color-panel">
+    <label>Цвет фона:</label>
     <div class="colors">
       <button
         v-for="color in colors"
@@ -14,45 +15,41 @@
 </template>
 
 <script setup lang="ts">
-import { useOrnamentStore } from '@/stores/ornament'
 import { computed } from 'vue'
+import { useOrnamentStore } from '@/stores/ornament'
 
 const store = useOrnamentStore()
 
 const colors = [
-  '#FF0000', // Красный
-  '#FF7F00', // Оранжевый
-  '#FFFF00', // Желтый
-  '#00FF00', // Зеленый
-  '#00FFFF', // Голубой
-  '#0000FF', // Синий
-  '#8B00FF', // Фиолетовый
-  '#000000', // Черный
   '#FFFFFF', // Белый
+  '#000000', // Черный
 ]
 
-const selectedColor = computed(() => store.selectedColor)
+const selectedColor = computed(() => store.gridColor)
 
 const selectColor = (color: string) => {
-  store.setColor(color)
+  store.setGridColor(color)
 }
 </script>
 
 <style scoped>
-.color-panel {
+.grid-color-panel {
   margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
 }
 
 .colors {
   display: flex;
-  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .color-button {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
   cursor: pointer;
@@ -64,16 +61,15 @@ const selectColor = (color: string) => {
 }
 
 .color-button.active {
-  border-color: #000;
+  border-color: var(--orange-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Специальная рамка для белого цвета */
 .color-button[style*='background-color: #FFFFFF'] {
   border: 2px solid #ccc;
 }
 
 .color-button[style*='background-color: #FFFFFF'].active {
-  border-color: #000;
+  border-color: var(--orange-color);
 }
 </style>

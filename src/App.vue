@@ -1,18 +1,20 @@
 <template>
   <div class="app">
-    <h1>Ornament Constructor</h1>
+    <h1 class="app-title">Ornament Constructor</h1>
     <div class="content">
-      <NumberPanel />
+      <SymbolPanel />
       <ColorPanel />
       <Grid />
+      <SaveControls />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Grid from '@/components/Grid.vue'
-import NumberPanel from '@/components/NumberPanel.vue'
+import SymbolPanel from '@/components/SymbolPanel.vue'
 import ColorPanel from '@/components/ColorPanel.vue'
+import SaveControls from '@/components/SaveControls.vue'
 </script>
 
 <style scoped>
@@ -20,6 +22,10 @@ import ColorPanel from '@/components/ColorPanel.vue'
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.app-title {
+  text-align: center;
 }
 
 .content {
