@@ -1,4 +1,6 @@
-# .
+# Ornament constructor challenge
+
+[Link to try](https://chocopieca.github.io/ornament-constructor-vue/)
 
 This template should help get you started developing with Vue 3 in Vite.
 
